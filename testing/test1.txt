@@ -1,4 +1,4 @@
-A:BCD
-B:A
-C:DB
-D:A
+A B C D
+B A
+C D B
+D A
