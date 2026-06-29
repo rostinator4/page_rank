@@ -44,11 +44,17 @@ std::unordered_map<std::string, double> PageRank(std::unordered_map<std::string,
 
 int main(int argc, char *argv[])
 {
+    if(argc < 3){ 
+        std::cerr << "The file name or test-case number was not provided" << std::endl;
+        return 1;
+    }
+
+    std::string file_path = argv[1];
+    std::ifstream myFile(file_path);
+
     std::unordered_map<std::string, std::vector<std::string>> web_map;
     std::unordered_map<std::string, double> pageRanks;
-    std::string newFile = "testing/test1.txt";
     std::string newLine;
-    std::ifstream myFile(newFile);
 
     if (!myFile.is_open())
     {
@@ -56,6 +62,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    std::cout << "Running test-case number " << argv[2] << "." << std::endl;
+    
     while (std::getline(myFile, newLine))
     {
         std::istringstream stream(newLine);
